@@ -1,2 +1,2 @@
-This is readme file placeholder
+This is readme file placeholder for project
 
