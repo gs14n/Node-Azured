@@ -1,0 +1,27 @@
+{
+  "name": "gopicasa",
+  "version": "1.0.0",
+  "description": "Library",
+  "main": "app.js",
+  "dependencies": {
+    "connect": "~2.9.0",
+    "express": "~3.3.8",
+    "socket.io": "~0.9.16",
+    "mongodb": "~1.3.19",
+    "jade": "~0.35.0",
+    "nodemailer": "~0.3.20"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gs14n/gopicasa.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/gs14n/gopicasa/issues"
+  }
+}
