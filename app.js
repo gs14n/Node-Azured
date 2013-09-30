@@ -20,8 +20,7 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.cookieParser());
   app.use(express.session({secret: " secret key", store: new MemoryStore()}));
-  mongoose.connect('mongodb://ucld-elib01.cloudapp.net/nodejsdb');
-  //mongoose.connect('mongodb://localhost/nodejsdb');
+  mongoose.connect('mongodb://localhost/nodejsdb');
 });
 
 app.get('/', function(req, res){
