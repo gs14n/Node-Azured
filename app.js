@@ -12,14 +12,16 @@ var config = {
 // Import the accounts
 var Account = require('./models/Account')(config, mongoose, nodemailer);
 
+//<------------ UI related URIs
 app.configure(function(){
   app.set('view engine', 'jade');
   app.use(express.static(__dirname + '/public'));
   app.use(express.limit('1mb'));
   app.use(express.bodyParser());
   app.use(express.cookieParser());
-  app.use(express.session({secret: "SocialNet secret key", store: new MemoryStore()}));
-  mongoose.connect('mongodb://localhost/nodebackbone');
+  app.use(express.session({secret: " secret key", store: new MemoryStore()}));
+  mongoose.connect('mongodb://ucld-elib01.cloudapp.net/nodejsdb');
+  //mongoose.connect('mongodb://localhost/nodejsdb');
 });
 
 app.get('/', function(req, res){
@@ -27,7 +29,6 @@ app.get('/', function(req, res){
 });
 
 app.post('/login', function(req, res) {
-  console.log('login request');
   var email = req.param('email', null);
   var password = req.param('password', null);
 
@@ -42,9 +43,11 @@ app.post('/login', function(req, res) {
       res.send(401);
       return;
     }
-    console.log('login was successful');
+    console.log('login was successful.  Returning home.jade');
     req.session.loggedIn = true;
-	res.end(" Welcome. Come back soon");
+	//res.end(" Welcome. Come back soon");
+    res.render('/views/home.jade', {user:email});
+    
   });
 });
 
@@ -104,6 +107,10 @@ app.post('/resetPassword', function(req, res) {
   }
   res.render('resetPasswordSuccess.jade');
 });
+//---------------- UI related URIs-->
 
-app.listen(8080);
-console.log("SocialNet is listening to port 8080.");
+var UserManager = require('./userManager').UserManager;
+var userManagerService = new UserManager(app, Account);
+
+app.listen(process.env.PORT || 8080);
+console.log("server started");
