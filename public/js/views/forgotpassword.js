@@ -11,6 +11,7 @@ define(['text!templates/forgotpassword.html'], function(forgotpasswordTemplate) 
         email: $('input[name=email]').val()
       }, function(data) {
         console.log(data);
+        window.location.hash = 'index';
       });
       return false;
     },
