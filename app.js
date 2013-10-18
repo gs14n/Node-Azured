@@ -133,39 +133,6 @@ app.post('/searchbook', function (req, res) {
     }
 });
 
-app.post('/upload', function (req, res) {
-    var message = req.param('message', null);
-    if (null != message) {
-        var mongo = require('mongodb');
-        var MongoClient = mongo.MongoClient;
-        var Grid = mongo.Grid;
-        // Connect to the db
-        MongoClient.connect("mongodb://ucld-elib01.cloudapp.net/nodejsdb", function (err, db) {
-            if (err) return console.dir(err);
-            var grid = new Grid(db, 'fs');
-            var buffer = new Buffer("message");
-            grid.put(buffer, { metadata: { category: 'text' }, content_type: 'text' }, function (err, fileInfo) {
-                if (!err) {
-                    console.log("Finished writing file to Mongo");
-                    res.send(200);
-                }
-            });
-        });
-    }
-});
-
-/*        var buffer = new Buffer(message);
-        grid.put(buffer, { metadata: { category: 'text' }, content_type: 'text' },
-         function (err, fileInfo) {
-            if (!err) {
-                console.log("Finished writing file to Mongo " + fileInfo);
-                res.send(200);
-            } else {
-                console.log("Unable to write message to GridFS");
-                res.send(500);
-            }
-        });
-    }*/
 
 //---------------- UI related URIs-->
 
