@@ -1,3 +1,20 @@
-loggingEnabled: true
-debuggingEnabled: true
-devErrorsEnabled: true
+nodeProcessCommandLine:"C:\Program Files\nodejs\node.exe"
+interceptor:"C:\Program Files\iisnode-express\interceptor.js"
+node_env:production
+logDirectory:iisnode
+maxConcurrentRequestsPerProcess:1024
+maxNamedPipeConnectionRetry:3
+namedPipeConnectionRetryDelay:2000
+asyncCompletionThreadCount:4
+initialRequestBufferSize:4096
+maxRequestBufferSize:65536
+uncFileChangesPollingInterval:5000
+gracefulShutdownTimeout:60000
+loggingEnabled:true
+debuggingEnabled:true
+devErrorsEnabled:true
+maxLogFileSizeInKB:128
+flushResponse: false
+enableXFF: false
+promoteServerVars: 
+  
