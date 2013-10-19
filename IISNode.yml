@@ -1,5 +1,3 @@
-nodeProcessCommandLine:"C:\Program Files\nodejs\node.exe"
-interceptor:"C:\Program Files\iisnode-express\interceptor.js"
 node_env:production
 logDirectory:iisnode
 maxConcurrentRequestsPerProcess:1024
